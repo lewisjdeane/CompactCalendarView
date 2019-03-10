@@ -763,8 +763,8 @@ class CompactCalendarController {
         int currentMonth = currentMonthToDrawCalender.get(Calendar.MONTH);
         List<Events> uniqEvents = eventsContainer.getEventsForMonthAndYear(currentMonth, currentMonthToDrawCalender.get(Calendar.YEAR));
 
-        boolean shouldDrawCurrentDayCircle = currentMonth == todayCalender.get(Calendar.MONTH);
-        boolean shouldDrawSelectedDayCircle = currentMonth == currentCalender.get(Calendar.MONTH);
+        boolean shouldDrawCurrentDayCircle = false;
+        boolean shouldDrawSelectedDayCircle = false;
 
         int todayDayOfMonth = todayCalender.get(Calendar.DAY_OF_MONTH);
         int currentYear = todayCalender.get(Calendar.YEAR);
