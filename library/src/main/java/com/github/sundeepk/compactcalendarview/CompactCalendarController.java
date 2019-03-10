@@ -595,11 +595,15 @@ class CompactCalendarController {
     }
 
     private void scrollNextMonth() {
-        lastAutoScrollFromFling = System.currentTimeMillis();
-        monthsScrolledSoFar = monthsScrolledSoFar - 1;
-        performScroll();
-        isSmoothScrolling = true;
-        performMonthScrollCallback();
+        if (monthsScrolledSoFar == 0) {
+            snapBackScroller();
+        } else {
+            lastAutoScrollFromFling = System.currentTimeMillis();
+            monthsScrolledSoFar = monthsScrolledSoFar - 1;
+            performScroll();
+            isSmoothScrolling = true;
+            performMonthScrollCallback();
+        }
     }
 
     private void scrollPreviousMonth() {
